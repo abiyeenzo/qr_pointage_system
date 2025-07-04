@@ -139,6 +139,6 @@ Ce projet permet à des utilisateurs de pointer leur **heure d’arrivée** et *
 
 ## Contact
 
-⚠️ Ce système a été développé par **Abiye Enzo**
-✉️ Email : [abiyeenzo@gmail.com](mailto:abiyeenzo@gmail.com)
+> ⚠️ Ce système a été développé par **Abiye Enzo**
+>> ✉️ Email : [abiyeenzo@gmail.com](mailto:abiyeenzo@gmail.com)
 
