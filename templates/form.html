@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulaire de Pointage MTN</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #FFCC00; /* Jaune MTN */
+      color: #000000;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #000000;
+      text-align: center;
+      padding: 15px 0;
+    }
+
+    header img {
+      max-width: 160px;
+      height: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 20px 10px 10px;
+      font-size: 22px;
+    }
+
+    form {
+      background-color: #ffffff;
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #000000;
+      color: #FFCC00;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #333333;
+    }
+
+    /* Responsive design */
+    @media (max-width: 480px) {
+      form {
+        margin: 10px;
+        padding: 20px;
+      }
+
+      header img {
+        max-width: 120px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+
+  <script>
+    async function loadSuggestions() {
+      const res = await fetch("/autocomplete");
+      const data = await res.json();
+
+      const nameList = document.getElementById("name-list");
+      const deptList = document.getElementById("dept-list");
+
+      data.names.forEach(name => {
+        const opt = document.createElement("option");
+        opt.value = name;
+        nameList.appendChild(opt);
+      });
+
+      data.departments.forEach(dept => {
+        const opt = document.createElement("option");
+        opt.value = dept;
+        deptList.appendChild(opt);
+      });
+    }
+
+    window.onload = loadSuggestions;
+
+    function toUpperCaseInput(event) {
+      event.target.value = event.target.value.toUpperCase();
+    }
+
+    function toLowerCaseInput(event) {
+      event.target.value = event.target.value.toLowerCase();
+    }
+  </script>
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/d/dd/MTN_logo.png" type="image/png">
+
+
+</head>
+<body>
+
+  <!-- Logo MTN Cameroun -->
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/MTN_logo.png" alt="Logo MTN Cameroun">
+  </header>
+
+  <h2>Formulaire de Pointage MTN</h2>
+
+  <form method="post">
+    <label for="name">Nom :</label>
+    <input type="text" name="name" id="name" list="name-list" required oninput="toUpperCaseInput(event)">
+    <datalist id="name-list"></datalist>
+
+    <label for="department">Département :</label>
+    <input type="text" name="department" id="department" list="dept-list" required oninput="toLowerCaseInput(event)">
+    <datalist id="dept-list"></datalist>
+
+    <button type="submit">Soumettre</button>
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+# requirements.txt
+# Ce projet a été développé par Abiye Enzo
+flask
+pandas
+openpyxl
+gunicorn
+cryptography
