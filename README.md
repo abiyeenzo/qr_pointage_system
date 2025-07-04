@@ -1,6 +1,4 @@
-Bien vu ! Je te rajoute la partie pour `run.py` dans la structure et une petite explication dans la section installation. Voici la version mise à jour :
 
-````markdown
 # Système de Pointage par QR Code
 
 Ce projet permet à des utilisateurs de pointer leur **heure d’arrivée** et **heure de sortie** en scannant un QR code, puis en saisissant leur nom et département via une interface web simple.
