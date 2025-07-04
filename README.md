@@ -36,7 +36,7 @@ Ce projet permet à des utilisateurs de pointer leur **heure d’arrivée** et *
 
    ```bash
    cd qr_pointage_system
-````
+   ```
 
 4. Installez les dépendances :
 
